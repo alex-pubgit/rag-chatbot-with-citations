@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ragbot"
+dynamic = ["version"]
+description = "Demo RAG chatbot: answers from your documents, cites every source, and says \"I don't know\" instead of guessing."
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Alex" }]
+keywords = ["rag", "chatbot", "citations", "retrieval", "bm25", "fastapi"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing :: Indexing",
+]
+dependencies = [
+    "fastapi>=0.142",
+    "httpx2>=2.6",
+    "numpy>=2.1",
+    "pydantic-settings>=2.14",
+    "pypdf>=6.6",
+    "uvicorn>=0.50",
+]
+
+[project.optional-dependencies]
+# Local embedding and reranking models through ONNX. No API key needed.
+fastembed = ["fastembed>=0.9"]
+# Claude through the official SDK.
+anthropic = ["anthropic>=2.3"]
+dev = [
+    "anthropic>=2.3",
+    "pytest>=8.3",
+    "ruff==0.17.5",
+]
+
+[project.scripts]
+ragbot = "ragbot.cli:main"
+
+[project.urls]
+Repository = "https://github.com/alex-pubgit/rag-chatbot-with-citations"
+
+[tool.hatch.version]
+path = "src/ragbot/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ragbot"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-q", "-m", "not live"]
+markers = [
+    "live: downloads a model or calls the network; excluded by default, run with -m live",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "C4", "PTH", "RET", "RUF"]
+# SIM905: word lists stay readable as one split string.
+ignore = ["SIM905"]
