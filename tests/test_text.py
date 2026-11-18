@@ -2,7 +2,16 @@ from __future__ import annotations
 
 import pytest
 
-from ragbot.text import join_units, split_sentences, split_units, stem, terms, tokenize
+from ragbot.text import (
+    is_list_item,
+    join_units,
+    split_sentences,
+    split_units,
+    stem,
+    strip_list_marker,
+    terms,
+    tokenize,
+)
 
 
 @pytest.mark.parametrize(
@@ -62,6 +71,17 @@ def test_split_sentences_keeps_list_items_whole() -> None:
         "- Ethereum",
         "2. Polygon",
     ]
+
+
+@pytest.mark.parametrize("line", ["- item", "* item", "+ item", "\N{BULLET} item", "12. item"])
+def test_list_markers_are_recognized_and_stripped(line: str) -> None:
+    assert is_list_item(line)
+    assert strip_list_marker(line) == "item"
+
+
+def test_ordinary_lines_are_not_list_items() -> None:
+    assert not is_list_item("2026. A year, not a list number")
+    assert not is_list_item("-dash without a space")
 
 
 def test_units_round_trip_preserves_paragraphs_and_lines() -> None:

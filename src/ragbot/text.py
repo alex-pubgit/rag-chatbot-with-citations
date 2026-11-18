@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 
 _TOKEN_RE = re.compile(r"[^\W_]+(?:\.\d+)*")
-_LIST_ITEM_RE = re.compile(r"^\s*(?:[-*+•]|\d{1,3}[.)])\s+")
+_LIST_ITEM_RE = re.compile(r"^\s*(?:[-*+\N{BULLET}]|\d{1,3}[.)])\s+")
 _SENTENCE_BREAK_RE = re.compile(r"""([.!?]["')\]]*)\s+(?=["'(\[]*[^\sa-z])""")
 _INITIALS_RE = re.compile(r"^(?:[A-Za-z]\.)+$")
 _ABBREVIATIONS = frozenset({"e.g.", "i.e.", "etc.", "vs.", "approx.", "no.", "fig."})

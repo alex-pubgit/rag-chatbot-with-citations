@@ -31,7 +31,7 @@ _SETEXT_RE = re.compile(r"^ {0,3}(={3,}|-{3,})[ \t]*$")
 _RULE_RE = re.compile(r"^ {0,3}([-*_])(?:[ \t]*\1){2,}[ \t]*$")
 _TABLE_RULE_RE = re.compile(r"^\|?[ \t:|-]*-[ \t:|-]*\|[ \t:|-]*$")
 _QUOTE_RE = re.compile(r"^[ \t]*(?:>[ \t]?)+")
-_BULLET_RE = re.compile(r"^[ \t]*[*+•][ \t]+")
+_BULLET_RE = re.compile(r"^[ \t]*[*+\N{BULLET}][ \t]+")
 
 _IMAGE_RE = re.compile(r"!\[([^\]]*)\]\([^)]*\)")
 _LINK_RE = re.compile(r"\[([^\]]+)\]\((?:[^()]|\([^)]*\))*\)")
