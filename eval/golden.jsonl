@@ -1,0 +1,40 @@
+{"question": "What is the swap fee?", "source": "fees.md", "facts": ["0.25%"]}
+{"question": "How much does it cost to swap USDT for USDC?", "source": "fees.md", "facts": ["0.10%"]}
+{"question": "Does AcmeSwap keep the gas fee?", "source": "fees.md", "facts": ["not to AcmeSwap"]}
+{"question": "Which coin do I need for gas on Polygon?", "source": "networks.md", "facts": ["POL"]}
+{"question": "Which networks does AcmeSwap support?", "source": "networks.md", "facts": ["BNB Smart Chain", "Ethereum", "Polygon"]}
+{"question": "What is the smallest amount I can swap?", "source": "getting-started.md", "facts": ["1 USDT"]}
+{"question": "What is the default slippage tolerance?", "source": "slippage.md", "facts": ["0.5%"]}
+{"question": "What is the highest slippage I can set?", "source": "slippage.md", "facts": ["maximum of 5%"]}
+{"question": "What happens when the price moves more than my slippage tolerance?", "source": "slippage.md", "facts": ["swap fails"]}
+{"question": "How long does a bridge transfer take?", "source": "bridge.md", "facts": ["5 to 20 minutes"]}
+{"question": "How much does bridging cost?", "source": "bridge.md", "facts": ["0.05%"]}
+{"question": "My bridge transfer has been pending for two hours. What should I do?", "source": "bridge.md", "facts": ["transaction hash"]}
+{"question": "Is there a minimum bridge fee?", "source": "bridge.md", "facts": ["1 USDT"]}
+{"question": "On which network does the ACME token exist?", "source": "acme-token.md", "facts": ["BNB Smart Chain only"]}
+{"question": "Where can I find the official ACME contract address?", "source": "acme-token.md", "facts": ["official website"]}
+{"question": "How long does unstaking take?", "source": "staking.md", "facts": ["7 days"]}
+{"question": "When are staking rewards paid out?", "source": "staking.md", "facts": ["Monday", "12:00 UTC"]}
+{"question": "Are staking reward rates guaranteed?", "source": "staking.md", "facts": ["not guaranteed"]}
+{"question": "Do my tokens earn rewards during the unstaking period?", "source": "staking.md", "facts": ["do not earn rewards"]}
+{"question": "How do I reach official support?", "source": "support.md", "facts": ["help widget"]}
+{"question": "Will a team member send me a direct message first?", "source": "support.md", "facts": ["never send the first direct message"]}
+{"question": "Someone told me to use a wallet validation tool. Is it real?", "source": "support.md", "facts": ["There is no wallet validation"]}
+{"question": "I lost my seed phrase. Can AcmeSwap recover it?", "source": "security.md", "facts": ["cannot recover a lost seed phrase"]}
+{"question": "Can a confirmed transaction be reversed?", "source": "security.md", "facts": ["cannot reverse or cancel a confirmed transaction"]}
+{"question": "Is there an airdrop right now?", "source": "airdrops.md", "facts": ["No airdrop is currently announced"]}
+{"question": "I found a page where I can claim an ACME airdrop. Is it safe?", "source": "airdrops.md", "facts": ["scam"]}
+{"question": "What is the rate limit of the public API?", "source": "api.md", "facts": ["60 requests per minute"]}
+{"question": "Where do I create an API key?", "source": "api.md", "facts": ["dashboard"]}
+{"question": "My swap is stuck as pending. How can I check it?", "source": "troubleshooting.md", "facts": ["block explorer"]}
+{"question": "Can I cancel a swap that is still pending?", "source": "troubleshooting.md", "facts": ["cancel it from your wallet"]}
+{"question": "When will ACME be listed on a centralized exchange?"}
+{"question": "What will the price of ACME be next year?"}
+{"question": "Who founded AcmeSwap?"}
+{"question": "What is on the AcmeSwap roadmap for next quarter?"}
+{"question": "How do I reset my account password?"}
+{"question": "What is the capital of France?"}
+{"question": "Can I buy ACME with a credit card?"}
+{"question": "Which wallet apps work with AcmeSwap?"}
+{"question": "Has AcmeSwap been audited, and by whom?"}
+{"question": "Does AcmeSwap have a mobile app for iPhone?"}

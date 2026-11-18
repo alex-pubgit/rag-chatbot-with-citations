@@ -1,0 +1,15 @@
+{"question": "What do I pay to move tokens from Ethereum to Polygon?", "source": "bridge.md", "facts": ["0.05%"]}
+{"question": "How many requests can I send to the API each minute?", "source": "api.md", "facts": ["60 requests per minute"]}
+{"question": "On which day are staking rewards distributed?", "source": "staking.md", "facts": ["Monday"]}
+{"question": "Is it safe to share my transaction hash with support?", "source": "support.md", "facts": ["safe to share"]}
+{"question": "Can I get my seed phrase back if I lose it?", "source": "security.md", "facts": ["cannot recover"]}
+{"question": "Why would a swap fail?", "source": "troubleshooting.md", "facts": ["slippage"]}
+{"question": "What does non-custodial mean?", "source": "getting-started.md", "facts": ["stay in your own wallet"]}
+{"question": "Is ACME available on Ethereum?", "source": "acme-token.md", "facts": ["BNB Smart Chain only"]}
+{"question": "What is slippage?", "source": "slippage.md", "facts": ["difference between the quoted price"]}
+{"question": "What happens to requests above the API rate limit?", "source": "api.md", "facts": ["429"]}
+{"question": "How many people work at AcmeSwap?"}
+{"question": "Is AcmeSwap licensed in the European Union?"}
+{"question": "What programming language is AcmeSwap written in?"}
+{"question": "What is the weather in Berlin today?"}
+{"question": "When is the next ACME token burn?"}
