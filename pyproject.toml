@@ -6,6 +6,7 @@ build-backend = "hatchling.build"
 name = "ragbot"
 dynamic = ["version"]
 description = "Demo RAG chatbot: answers from your documents, cites every source, and says \"I don't know\" instead of guessing."
+readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -30,12 +31,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-# Local embedding and reranking models through ONNX. No API key needed.
+# A local embedding model through ONNX. No API key needed.
 fastembed = ["fastembed>=0.9"]
-# Claude through the official SDK.
-anthropic = ["anthropic>=2.3"]
 dev = [
-    "anthropic>=2.3",
     "pytest>=8.3",
     "ruff==0.17.5",
 ]

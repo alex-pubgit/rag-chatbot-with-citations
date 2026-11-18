@@ -1,0 +1,11 @@
+services:
+  ragbot:
+    build: .
+    ports:
+      - "8000:8000"
+    # Values come from your shell or from a .env file next to this file.
+    environment:
+      RAGBOT_ANSWERER: ${RAGBOT_ANSWERER:-extractive}
+      RAGBOT_LLM_MODEL: ${RAGBOT_LLM_MODEL:-}
+      RAGBOT_LLM_BASE_URL: ${RAGBOT_LLM_BASE_URL:-https://api.openai.com/v1}
+      RAGBOT_LLM_API_KEY: ${RAGBOT_LLM_API_KEY:-}

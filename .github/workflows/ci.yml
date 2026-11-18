@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: pytest
+      - name: Evaluation gate on the sample corpus
+        run: |
+          ragbot ingest sample_docs
+          ragbot eval --min-hit-rate 0.95 --min-correct 0.75 --min-refusal-recall 0.85
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: docker build -t ragbot .
+      - name: Start the container and ask a question
+        run: |
+          docker run -d --name ragbot -p 8000:8000 ragbot
+          for attempt in $(seq 1 30); do
+            curl -fs http://127.0.0.1:8000/health && break
+            sleep 1
+          done
+          curl -fs -X POST http://127.0.0.1:8000/ask \
+            -H "Content-Type: application/json" \
+            -d '{"question": "What is the bridge fee?"}' | tee answer.json
+          grep -q '0.05%' answer.json
+      - if: failure()
+        run: docker logs ragbot
