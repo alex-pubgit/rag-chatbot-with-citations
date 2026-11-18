@@ -7,7 +7,50 @@ from pathlib import Path
 
 import pytest
 
+from ragbot.chatbot import Chatbot, build_chatbot
+from ragbot.documents import Chunk, Passage
+from ragbot.embeddings.hashing import HashingEmbedder
+from ragbot.index import Index
+from ragbot.ingest import build_index
+from ragbot.settings import Settings
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
+SAMPLE_DOCS = REPO_ROOT / "sample_docs"
+
+
+@pytest.fixture(scope="session")
+def sample_index() -> Index:
+    index, _ = build_index(SAMPLE_DOCS, HashingEmbedder(), chunk_size=120, chunk_overlap=20)
+    return index
+
+
+@pytest.fixture(scope="session")
+def chatbot(sample_index: Index) -> Chatbot:
+    """The offline bot over the sample corpus, with default settings."""
+    return build_chatbot(Settings(_env_file=None), index=sample_index, embedder=HashingEmbedder())
+
+
+@pytest.fixture
+def make_passage() -> Callable[..., Passage]:
+    def make(
+        text: str,
+        *,
+        source: str = "doc.md",
+        title: str = "Doc",
+        heading: tuple[str, ...] = ("Section",),
+        score: float = 0.9,
+    ) -> Passage:
+        chunk = Chunk(
+            id=f"{source}#0",
+            source=source,
+            title=title,
+            heading_path=heading,
+            position=0,
+            text=text,
+        )
+        return Passage(chunk=chunk, score=score)
+
+    return make
 
 
 def _pdf_string(text: str) -> str:
